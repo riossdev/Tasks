@@ -8,6 +8,7 @@ dotenv.config({path:'.env'})
 const app = express()
 const PORT = process.env.SERVER_PORT
 
+app.use(express.json())
 app.use(routes)
 
 // const result = await pool.query('select 2 + 2 AS result') 
