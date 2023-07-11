@@ -17,6 +17,6 @@ routes.post('/createTask', createTask)
 
 routes.put('/updateTask/:id', updateTask)
 
-routes.delete('/deleteTasks/:id', deleteTask)
+routes.delete('/deleteTask/:id', deleteTask)
 
 export default routes
