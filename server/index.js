@@ -1,5 +1,5 @@
 import express from 'express'
-import pool from './db.js'
+import cors from  'cors'
 import routes from './routes/usuarioRoutes.js'
 
 import dotenv from 'dotenv'
@@ -8,6 +8,9 @@ dotenv.config({path:'.env'})
 const app = express()
 const PORT = process.env.SERVER_PORT
 
+app.use(cors({
+  origin: "http://localhost:5173"
+}))
 app.use(express.json())
 app.use(routes)
 
