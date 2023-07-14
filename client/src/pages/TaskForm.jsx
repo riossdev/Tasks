@@ -1,5 +1,5 @@
 import { Formik, Form } from "formik";
-import  createTaskRequest  from '../api/tasks.api.js'
+import  {createTaskRequest} from '../api/tasks.api.js'
 
 function TaskForm() {
   return (
@@ -12,7 +12,11 @@ function TaskForm() {
         }}
         onSubmit= { async (values)=>{
           console.log(values)
-          const response = await createTaskRequest(values)
+          try {
+            const response = await createTaskRequest(values)
+          } catch (error) {
+            console.log(error)
+          }
         }}
       >
         {({ handleChange, handleSubmit }) => (
@@ -24,6 +28,8 @@ function TaskForm() {
               placeholder="Titulo"
               onChange={handleChange}
             />
+            <br />
+            <br />
             <label>Description</label>
             <textarea
               name="descriptions"
@@ -31,6 +37,8 @@ function TaskForm() {
               placeholder="Descripción"
               onChange={handleChange}
             ></textarea>
+            <br />
+            <br />
             <button type="submit">Guardar</button>
           </Form>
         )}
@@ -39,3 +47,4 @@ function TaskForm() {
   );
 }
 export default TaskForm;
+
