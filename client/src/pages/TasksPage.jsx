@@ -1,20 +1,30 @@
-import { useEffect } from "react";
-import {getTaskRecuest} from "../api/tasks.api.js";
+import { useEffect, useState } from 'react'
+import { getRequestTask } from '../api/tasks.api.js'
 
-function TaskPage() {
-  useEffect(() => {
-    async function loadTasks() {
-      const response = await getTaskRecuest();
-      console.log(response);
+function getTask() {
+
+  const [Task, setTask] = useState([]) 
+  useEffect(()=>{
+    async function loadTask (){
+      const response = await getRequestTask()
+      setTask(response)
     }
-    loadTasks();
-  }, []);
+    loadTask()
+  },[])
 
-  return (
+  return(
     <div>
-      <h1>Tasks.</h1>
-    </div>
-  );
+        {Task.map( task =>(
+          <div>
+            <h3  >{task.title}</h3>
+            <p>{task.descriptions}</p>
+          </div>
+        ))
+        }
+        <h1>Takss</h1>
+    </div> 
+  )
 }
 
-export default TaskPage;
+
+export default getTask

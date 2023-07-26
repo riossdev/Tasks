@@ -10,36 +10,43 @@ function TaskForm() {
           title: "",
           descriptions: "",
         }}
-        onSubmit= { async (values)=>{
+        onSubmit= { async (values, actions)=>{
           console.log(values)
           try {
             const response = await createTaskRequest(values)
-          } catch (error) {
+            actions.resetForm()
+          } catch (error) { 
             console.log(error)
           }
         }}
       >
-        {({ handleChange, handleSubmit }) => (
+        {({ handleChange, handleSubmit, values, isSubmitting }) => (
           <Form onSubmit={handleSubmit}>
             <label>Title</label>
+            <br />
             <input
               type="text"
               name="title"
               placeholder="Titulo"
               onChange={handleChange}
+              value={values.title}
             />
             <br />
             <br />
             <label>Description</label>
+            <br />
             <textarea
               name="descriptions"
               rows="3"
               placeholder="Descripción"
               onChange={handleChange}
+              value={values.descriptions}
             ></textarea>
             <br />
             <br />
-            <button type="submit">Guardar</button>
+            <button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Saving..." : "Save"}
+            </button>
           </Form>
         )}
       </Formik>

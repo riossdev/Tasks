@@ -1,22 +1,22 @@
-import { Router } from 'express'
-import { 
-    getTasks,
-    getTask,
-    createTask,
-    updateTask,
-    deleteTask
-  } from '../controllers/usuarioControllers.js'
+import { Router } from "express";
+import {
+  getTasks,
+  getTask,
+  createTask,
+  updateTask,
+  deleteTask,
+} from "../controllers/usuarioControllers.js";
 
-const routes = Router()
+const routes = Router();
 
-routes.get('/tasks', getTasks)
+routes.get("/tasks", getTasks);
 
-routes.get('/task/:id', getTask)
+routes.get("/task/:id", getTask);
 
-routes.post('/createTask', createTask)
+routes.post("/createTask", createTask);
 
-routes.put('/updateTask/:id', updateTask)
+routes.put("/updateTask/:id", updateTask);
 
-routes.delete('/deleteTask/:id', deleteTask)
+routes.delete("/deleteTask/:id", deleteTask);
 
-export default routes
+export default routes;
