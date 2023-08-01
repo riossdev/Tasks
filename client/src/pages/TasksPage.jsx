@@ -1,28 +1,24 @@
-import { useEffect, useState } from 'react'
-import { getRequestTask } from '../api/tasks.api.js'
+import { useEffect } from 'react'
+import TaskCard from '../components/TaskCard.jsx'
+import { useTask } from '../context/TaskContext'
 
 function getTask() {
+  const { Task, loadTask } = useTask()
 
-  const [Task, setTask] = useState([]) 
-  useEffect(()=>{
-    async function loadTask (){
-      const response = await getRequestTask()
-      setTask(response)
-    }
+  useEffect(() => {
     loadTask()
-  },[])
+  }, [])
 
-  return(
+  function renderMain() {
+    if (Task.length === 0) return <h4> No tienes Tareas pendientes 🙌</h4>
+    return Task.map(task => (<TaskCard task={task} key={task.id} />))
+  }
+
+  return (
     <div>
-        {Task.map( task =>(
-          <div>
-            <h3  >{task.title}</h3>
-            <p>{task.descriptions}</p>
-          </div>
-        ))
-        }
-        <h1>Takss</h1>
-    </div> 
+      <h1>Tareas Creadas</h1>
+      {renderMain()}
+    </div>
   )
 }
 

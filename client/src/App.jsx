@@ -5,17 +5,19 @@ import TaskForm from "./pages/TaskForm";
 import NotFound from "./pages/NotFound";
 
 import NavBar from "./components/Navbar";
+import { TaskContextProvider } from "./context/TaskContext";
 
 function App() {
   return (
-    <>
-      <NavBar/>
+    <TaskContextProvider>
+      <NavBar />
       <Routes>
         <Route path="/" element={<TaskPage />} />
         <Route path="/new" element={<TaskForm />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </>
+    </TaskContextProvider>
+
   );
 }
 
