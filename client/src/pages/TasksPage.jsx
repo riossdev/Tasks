@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import TaskCard from '../components/TaskCard.jsx'
-import { useTask } from '../context/TaskContext'
+import { useTask } from '../context/TaskProvider'
 
 function getTask() {
   const { Task, loadTask } = useTask()
@@ -21,6 +21,5 @@ function getTask() {
     </div>
   )
 }
-
 
 export default getTask

@@ -1,19 +1,15 @@
-// import { deleteTaskRequest } from '../api/tasks.api'
-import { useTask } from '../context/TaskContext'
-// import { deleteTask } from '../context/TaskContext'
+import { useTask  } from '../context/TaskProvider.jsx'
+import { useNavigate } from 'react-router-dom'
 
 function TaskCard({ task }) {
-
-
-  const {deleteTask } = useTask ()
-  // deleteTaskRequest()
-
+  const { deleteTask } = useTask ()
+  const navigate = useNavigate()
   return (
     <div>
       <h3>{task.title}</h3>
       <p>{task.descriptions}</p>
-      <p>{task.createAt}</p>
-      <button>Editar</button>
+      <p>{task.createAt}</p> 
+      <button onClick={()=> navigate(`/edit/${task.id}`)} >Editar</button>
       <button onClick={() => deleteTask(task.id)}>Eliminar</button>
     </div>
   )

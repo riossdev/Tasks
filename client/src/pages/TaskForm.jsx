@@ -1,14 +1,28 @@
 import { Formik, Form } from "formik";
 import { createTaskRequest } from '../api/tasks.api.js'
-import { useTask } from '../context/TaskContext.jsx'
+import { useTask } from '../context/TaskProvider'
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 function TaskForm() {
-  const { text, x } = useTask()
-  console.log(text, x)
+  const { getTaskss } = useTask()
+  const params = useParams()
+
+  useEffect(()=>{
+    const loadTasks = async () =>{
+      if(params.id){
+        const task = await getTaskss(params.id)
+        console.log(task)
+      }
+    }
+    loadTasks()
+  },[])
 
   return (
     <div>
-      <h1>Forms</h1>
+      <h1>
+        {params.id ? "Actualizar Tarea" : "Crear Tarea"}
+      </h1>
       <Formik
         initialValues={{ 
           title: "",
@@ -58,4 +72,3 @@ function TaskForm() {
   );
 }
 export default TaskForm;
-
