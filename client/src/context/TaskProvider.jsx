@@ -30,7 +30,7 @@ const TaskContextProvider = ({ children }) => {
   const getTaskss = async (id) => {
     try {
       const response = await getTask(id)
-      return response.data
+      console.log(response)
     } catch (error) {
 
     }

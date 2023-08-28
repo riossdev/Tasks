@@ -11,8 +11,8 @@ function TaskForm() {
   useEffect(()=>{
     const loadTasks = async () =>{
       if(params.id){
-        const task = await getTaskss(params.id)
-        console.log(task)
+        const response = await getTaskss(params.id)
+        console.log(response)
       }
     }
     loadTasks()

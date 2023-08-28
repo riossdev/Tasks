@@ -14,5 +14,6 @@ export const deleteTaskRequest = async (id) =>{
 }
 
 export const getTask = async (id) => {
-  await axios.get(`http://localhost:4000/task/${id}`) 
+  const response = await axios.get(`http://localhost:4000/task/${id}`) 
+  return response.data
 }
