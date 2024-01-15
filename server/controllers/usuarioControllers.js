@@ -1,16 +1,14 @@
-import pool from '../db.js'
+import pool from "../db.js";
 
 // Get task
 const getTasks = async (req, res) => {
   try {
-    const [result] = await pool.query(
-      "SELECT * FROM task ORDER BY createAt ASC"
-    );
+    const [result] = await pool.query("SELECT * FROM task ");
     console.log(result);
     res.json(result);
     // res.send('Getting Tasks')
   } catch (error) {
-    return res.status(500).json({ message: " Error.message" });
+    return res.status(404).json({ message: " Error.message" });
   }
 };
 
@@ -30,7 +28,7 @@ const getTask = async (req, res) => {
 };
 
 // create task
-const createTask = async (req, res) => {
+const createTasks = async (req, res) => {
   try {
     const { title, descriptions } = req.body;
     const [result] = await pool.query(
@@ -76,4 +74,4 @@ const deleteTask = async (req, res) => {
   }
 };
 
-export { getTasks, getTask, createTask, updateTask, deleteTask };
+export { getTasks, getTask, createTasks, updateTask, deleteTask };

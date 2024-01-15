@@ -1,23 +1,21 @@
 import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
-import TaskPage from "./pages/TasksPage";
-import TaskForm from "./pages/TaskForm";
+import TaskPage from "./pages/Tasks";
+import TaskForm from "./pages/TasksForms";
 import NotFound from "./pages/NotFound";
-
-import NavBar from "./components/Navbar";
-import { TaskContextProvider } from "./context/TaskProvider";
 
 function App() {
   return (
-    <TaskContextProvider>
-      <NavBar />
+    <div>
+      <h1 className="text-center font-extrabold p-8 text-xl">App Tasks</h1>
+      <Navbar />
       <Routes>
         <Route path="/" element={<TaskPage />} />
-        <Route path="/new" element={<TaskForm />} />
-        <Route path="/edit/:id" element={<TaskForm />} />
+        <Route path="/createTasks" element={<TaskForm />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </TaskContextProvider>
+    </div>
   );
 }
 
