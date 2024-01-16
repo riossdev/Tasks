@@ -1,25 +1,33 @@
 import { useEffect } from "react";
 
-import { getTaskRequest } from "../api/tasks.api";
+import TasksCard from "../components/TasksCard";
+import { useTasks } from "../context/ContextProvider";
 
 function TaskPage() {
+  // const [Tasks, setTasks] = useState([]);
+  const { Tasks, loadTask } = useTasks();
+
   useEffect(() => {
-    async function loadTask() {
-      try {
-        const response = await getTaskRequest();
-        console.log(response);
-      } catch (error) {
-        console.error(error);
-      }
-    }
     loadTask();
   }, []);
 
-  return (
-    <div>
-      <h1 className="text-center font-bold p-4">Tareas Pendientes!..</h1>
-    </div>
-  );
+  function renderTasks() {
+    if (Tasks.length === 0)
+      return (
+        <h1 className="text-center font-bold p-4">
+          ✌️Que buena noticia, No tienes tareas pendientes!. 🙌
+        </h1>
+      );
+    return (
+      <div>
+        <h1 className="text-center font-bold p-4">Tareas Pendientes!..</h1>
+        {Tasks.map((task) => (
+          <TasksCard task={task} key={task.id} />
+        ))}
+      </div>
+    );
+  }
+  return <div>{renderTasks()}</div>;
 }
 
 export default TaskPage;

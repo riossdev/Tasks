@@ -47,6 +47,17 @@ const createTasks = async (req, res) => {
 };
 
 // Update Task
+// const updateTask = async (req, res) => {
+//   try {
+//     const result = await pool.query("UPDATE task SET ? WHERE id = (?)", [
+//       req.body,
+//       req.params.id,
+//     ]);
+//     res.send(result);
+//   } catch (error) {
+//     return res.status(500).json({ message: error.message });
+//   }
+// };
 const updateTask = async (req, res) => {
   try {
     const result = await pool.query("UPDATE task SET ? WHERE id = ?", [
@@ -55,7 +66,7 @@ const updateTask = async (req, res) => {
     ]);
     res.send(result);
   } catch (error) {
-    return res.status(500).json({ message: "Error.message" });
+    return res.status(500).json({ message: error.message });
   }
 };
 
