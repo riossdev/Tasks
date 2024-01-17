@@ -8,7 +8,7 @@ import NotFound from "./pages/NotFound";
 
 function App() {
   return (
-    <div>
+    <div className="bg-gray-100 h-screen">
       <h1 className="text-center font-extrabold p-8 text-xl">App Tasks</h1>
       <TaskContextProvider>
         <Navbar />

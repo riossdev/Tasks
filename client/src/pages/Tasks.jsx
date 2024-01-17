@@ -19,15 +19,21 @@ function TaskPage() {
         </h1>
       );
     return (
-      <div>
-        <h1 className="text-center font-bold p-4">Tareas Pendientes!..</h1>
-        {Tasks.map((task) => (
-          <TasksCard task={task} key={task.id} />
-        ))}
+      <div className="w-full">
+        <h1 className="text-center font-bold p-4 s">Tareas Pendientes!..</h1>
+        <div className="grid grid-cols-3">
+          {Tasks.map((task) => (
+            <TasksCard task={task} key={task.id} />
+          ))}
+        </div>
       </div>
     );
   }
-  return <div>{renderTasks()}</div>;
+  return (
+    <div>
+      <div>{renderTasks()}</div>
+    </div>
+  );
 }
 
 export default TaskPage;
