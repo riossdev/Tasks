@@ -14,14 +14,16 @@ function TaskPage() {
   function renderTasks() {
     if (Tasks.length === 0)
       return (
-        <h1 className="text-center font-bold p-4">
+        <h1 className="text-center font-bold p-4 text-4xl text-white">
           ✌️Que buena noticia, No tienes tareas pendientes!. 🙌
         </h1>
       );
     return (
       <div className="w-full">
-        <h1 className="text-center font-bold p-4 s">Tareas Pendientes!..</h1>
-        <div className="grid grid-cols-3">
+        <h1 className="text-center font-bold p-4 text-4xl text-white">
+          Tareas Pendientes!..
+        </h1>
+        <div className="sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {Tasks.map((task) => (
             <TasksCard task={task} key={task.id} />
           ))}

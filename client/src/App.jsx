@@ -8,8 +8,10 @@ import NotFound from "./pages/NotFound";
 
 function App() {
   return (
-    <div className="bg-gray-100 h-screen">
-      <h1 className="text-center font-extrabold p-8 text-xl">App Tasks</h1>
+    <div className="bg-zinc-800 h-screen p-12 flex flex-col items-center gap-4">
+      <h1 className="text-center font-extrabold p-8 text-4xl text-white">
+        App Tasks
+      </h1>
       <TaskContextProvider>
         <Navbar />
         <Routes>

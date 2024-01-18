@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 function Nabvar() {
   return (
-    <div>
-      <ul>
+    <div className="text-white text-2xl p-4 flex justify-center">
+      <ul className="flex gap-6">
         <li>
           <Link to="/">🏘️ Home</Link>
         </li>

@@ -5,31 +5,31 @@ function TasksCard({ task }) {
   const { deleteTasks } = useTasks();
   const navigate = useNavigate();
   return (
-    <div className="bg-gray-400 flex text-center">
-      <h1>{task.title}</h1>
-      <p>{task.descriptions}</p>
-      <p>{task.done}</p>
-      <p>{task.createdAt}</p>
-      <div>
-        <button
-          className="bg-blue-500 text-white font-medium hover:bg-blue-700 p-2 rounded-lg mr-6"
-          onClick={() => {
-            navigate(`/edit/${task.id}`);
-          }}
-        >
-          Editar
-        </button>
-        <button
-          className="bg-red-500 text-white font-medium hover:bg-red-700 p-2 rounded-lg "
-          onClick={() => {
-            deleteTasks(task.id);
-          }}
-        >
-          Eliminar
-        </button>
+    <div className="bg-gray-300 w-56  m-4 items-center rounded-lg md:w-80 ">
+      <div className="p-6 item ">
+        <h1 className="text-2xl font-bold mb-2">{task.title}</h1>
+        <p className="text-ms font-semibold ">{task.descriptions}</p>
+        {/* <p>{task.done}</p> */}
+        <p className="mb-6">{task.createdAt}</p>
+        <div className="  flex place-items-end gap-4">
+          <button
+            className="bg-gray-600 py-2 px-4 rounded"
+            onClick={() => {
+              navigate(`/edit/${task.id}`);
+            }}
+          >
+            Editar
+          </button>
+          <button
+            className="bg-red-500 py-2 px-4 rounded"
+            onClick={() => {
+              deleteTasks(task.id);
+            }}
+          >
+            Eliminar
+          </button>
+        </div>
       </div>
-      <br></br>
-      <br />
     </div>
   );
 }
