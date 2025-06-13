@@ -8,7 +8,7 @@ function TasksCard({ task }) {
     <div className="bg-gray-300 w-56  m-4 items-center rounded-lg md:w-80 ">
       <div className="p-6 item ">
         <h1 className="text-2xl font-bold mb-2">{task.title}</h1>
-        <p className="text-ms font-semibold ">{task.descriptions}</p>
+        <p className="text-ms font-semibold ">{task.description}</p>
         {/* <p>{task.done}</p> */}
         <p className="mb-6">{task.createdAt}</p>
         <div className="  flex place-items-end gap-4">

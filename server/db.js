@@ -3,11 +3,11 @@ import dotenv from 'dotenv'
 dotenv.config({path:'.env'})
 
 const pool =  createPool({
-  host: process.env.HOST,
-  user: process.env.USER,
-  password: process.env.PASSWORD,
-  port: process.env.PORT,
-  database: process.env.DATABASE
+  host: "localhost",
+  user: "root",
+  password: "root",
+  port: "33066",
+  database: "tasks"
 })
 
 

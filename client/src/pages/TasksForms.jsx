@@ -7,7 +7,7 @@ function TaskForm() {
   const { createTasks, getTask, updateTasks } = useTasks();
   const [tasks, setTasks] = useState({
     title: "",
-    descriptions: "",
+    description: "",
   });
   const params = useParams();
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ function TaskForm() {
         console.log(tasks);
         setTasks({
           title: tasks.title,
-          descriptions: tasks.descriptions,
+          description: tasks.description,
         });
       }
     };
@@ -46,7 +46,7 @@ function TaskForm() {
 
             setTasks({
               title: "",
-              descriptions: "",
+              description: "",
             });
           }}
         >
@@ -65,10 +65,10 @@ function TaskForm() {
               <label>Describe la tarea</label>
               <br />
               <textarea
-                name="descriptions"
+                name="description"
                 rows="3"
                 onChange={handleChange}
-                value={values.descriptions}
+                value={values.description}
               ></textarea>
               <br />
               <br />

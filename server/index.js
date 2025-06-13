@@ -6,11 +6,11 @@ import dotenv from "dotenv";
 dotenv.config({ path: ".env" });
 
 const app = express();
-const PORT = process.env.SERVER_PORT;
+const PORT = 5100;
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "http://127.0.0.1:5173",
   })
 );
 

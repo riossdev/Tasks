@@ -30,34 +30,23 @@ const getTask = async (req, res) => {
 // create task
 const createTasks = async (req, res) => {
   try {
-    const { title, descriptions } = req.body;
+    const { title, description } = req.body;
     const [result] = await pool.query(
-      "INSERT INTO task (title, descriptions ) VAlUES (?,?)",
-      [title, descriptions]
+      "INSERT INTO task (title, description ) VAlUES (?,?)",
+      [title, description]
     );
     console.log(result);
     res.json({
       id: result.insertId,
       title,
-      descriptions,
+      description,
     });
   } catch (error) {
     return res.status(500).json({ message: "Error.message" });
   }
 };
 
-// Update Task
-// const updateTask = async (req, res) => {
-//   try {
-//     const result = await pool.query("UPDATE task SET ? WHERE id = (?)", [
-//       req.body,
-//       req.params.id,
-//     ]);
-//     res.send(result);
-//   } catch (error) {
-//     return res.status(500).json({ message: error.message });
-//   }
-// };
+
 const updateTask = async (req, res) => {
   try {
     const result = await pool.query("UPDATE task SET ? WHERE id = ?", [
