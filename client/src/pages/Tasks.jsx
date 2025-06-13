@@ -15,7 +15,8 @@ function TaskPage() {
     if (Tasks.length === 0)
       return (
         <h1 className="text-center font-bold p-4 text-4xl text-white">
-          ✌️Que buena noticia, No tienes tareas pendientes!. 🙌
+          ✌️Que buena noticia, No tienes tareas pendientes! esto esta super!!!. 🙌
+          Eres un crack!
         </h1>
       );
     return (
